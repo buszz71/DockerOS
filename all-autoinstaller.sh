@@ -1,30 +1,30 @@
 #!/bin/bash  
 
-# Colors
-RED="\e[31m"
-GREEN="\e[32m"
-YELLOW="\e[33m"
-CYAN="\e[36m"
-WHITE="\e[37m"
+# Warna
+MERAH="\e[31m"
+HIJAU="\e[32m"
+KUNING="\e[33m"
+BIRU="\e[36m"
+PUTIH="\e[37m"
 RESET="\e[0m"
-BOLD="\e[1m"
+TEBAL="\e[1m"
 
 # Banner
 banner() {
     clear
-    echo -e "${CYAN}${BOLD}"
+    echo -e "${BIRU}${TEBAL}"
     echo "====================================="
-    echo "        CUSTOM SCRIPT LAUNCHER       "
-    echo "          Created by Manz4Ndaa       "
+    echo "        LAUNCHER SCRIPT OTOMATIS     "
+    echo "          Dibuat oleh Manz4Ndaa      "
     echo "====================================="
     echo -e "${RESET}"
 }
 
-# Check if curl is installed
-check_curl() {
+# Cek apakah curl sudah terpasang
+cek_curl() {
     if ! command -v curl &>/dev/null; then
-        echo -e "${RED}${BOLD}Error: curl is not installed.${RESET}"
-        echo -e "${YELLOW}Installing curl...${RESET}"
+        echo -e "${MERAH}${TEBAL}Error: curl belum terpasang.${RESET}"
+        echo -e "${KUNING}Menginstall curl...${RESET}"
         if command -v apt-get &>/dev/null; then
             sudo apt-get update && sudo apt-get install -y curl
         elif command -v yum &>/dev/null; then
@@ -32,95 +32,95 @@ check_curl() {
         elif command -v dnf &>/dev/null; then
             sudo dnf install -y curl
         else
-            echo -e "${RED}Could not install curl automatically. Please install it manually.${RESET}"
+            echo -e "${MERAH}Gagal menginstall curl otomatis. Silakan pasang manual.${RESET}"
             exit 1
         fi
-        echo -e "${GREEN}curl installed successfully!${RESET}"
+        echo -e "${HIJAU}curl berhasil dipasang!${RESET}"
     fi
 }
 
-# Function to run remote scripts
-run_remote_script() {
+# Jalankan script dari internet
+jalankan_script() {
     local url=$1
-    local script_name=$(basename "$url" .sh)
-    script_name=$(echo "$script_name" | sed 's/.*/\u&/')
+    local nama_script=$(basename "$url" .sh)
+    nama_script=$(echo "$nama_script" | sed 's/.*/\u&/')
 
-    echo -e "${YELLOW}${BOLD}Running: ${CYAN}${script_name}${RESET}"
-    check_curl
+    echo -e "${KUNING}${TEBAL}Menjalankan: ${BIRU}${nama_script}${RESET}"
+    cek_curl
 
     local temp_script=$(mktemp)
-    echo -e "${YELLOW}Downloading script...${RESET}"
+    echo -e "${KUNING}Mengunduh script...${RESET}"
 
     if curl -fsSL "$url" -o "$temp_script"; then
-        echo -e "${GREEN}✓ Download successful${RESET}"
+        echo -e "${HIJAU}✓ Unduhan berhasil${RESET}"
         chmod +x "$temp_script"
         bash "$temp_script"
-        local exit_code=$?
+        local kode=$?
         rm -f "$temp_script"
-        if [ $exit_code -eq 0 ]; then
-            echo -e "${GREEN}✓ Script executed successfully${RESET}"
+        if [ $kode -eq 0 ]; then
+            echo -e "${HIJAU}✓ Script berhasil dijalankan${RESET}"
         else
-            echo -e "${RED}✗ Script execution failed with exit code: $exit_code${RESET}"
+            echo -e "${MERAH}✗ Script gagal dijalankan dengan kode keluar: $kode${RESET}"
         fi
     else
-        echo -e "${RED}✗ Failed to download script${RESET}"
+        echo -e "${MERAH}✗ Gagal mengunduh script${RESET}"
     fi
     echo
-    read -p "Press Enter to continue..."
+    read -p "Tekan Enter untuk lanjut..."
 }
 
-# Function to show system info
-system_info() {
-    echo -e "${BOLD}SYSTEM INFORMATION${RESET}"
-    echo "Hostname: $(hostname)"
-    echo "User: $(whoami)"
-    echo "Directory: $(pwd)"
-    echo "System: $(uname -srm)"
-    echo "Uptime: $(uptime -p)"
-    echo "Memory: $(free -h | awk '/Mem:/ {print $3"/"$2}')"
-    echo "Disk: $(df -h / | awk 'NR==2 {print $3"/"$2 " ("$5")"}')"
+# Info sistem
+info_sistem() {
+    echo -e "${TEBAL}INFORMASI SISTEM${RESET}"
+    echo "Hostname : $(hostname)"
+    echo "User     : $(whoami)"
+    echo "Direktori: $(pwd)"
+    echo "Sistem   : $(uname -srm)"
+    echo "Uptime   : $(uptime -p)"
+    echo "Memori   : $(free -h | awk '/Mem:/ {print $3\"/\"$2}')"
+    echo "Disk     : $(df -h / | awk 'NR==2 {print $3\"/\"$2 \" (\"$5\")\"}')"
     echo
-    read -p "Press Enter to continue..."
+    read -p "Tekan Enter untuk lanjut..."
 }
 
-# Function to generate and display menu
-show_menu() {
+# Menu
+tampilkan_menu() {
     banner
     menu_content=$(cat <<EOF
-${BOLD}========== MAIN MENU ==========${RESET}
-${BOLD}1. Panel${RESET}
-${BOLD}2. Wings${RESET}
-${BOLD}3. Update${RESET}
-${BOLD}4. Uninstall${RESET}
-${BOLD}5. Blueprint${RESET}
-${BOLD}6. Cloudflare${RESET}
-${BOLD}7. Change Theme${RESET}
-${BOLD}9. System Info${RESET}
-${BOLD}10. Exit${RESET}
-${BOLD}===============================${RESET}
+${TEBAL}========== MENU UTAMA ===========${RESET}
+${TEBAL}1. Panel${RESET}
+${TEBAL}2. Wings${RESET}
+${TEBAL}3. Update${RESET}
+${TEBAL}4. Uninstall${RESET}
+${TEBAL}5. Blueprint${RESET}
+${TEBAL}6. Cloudflare${RESET}
+${TEBAL}7. Ganti Tema${RESET}
+${TEBAL}9. Info Sistem${RESET}
+${TEBAL}10. Keluar${RESET}
+${TEBAL}=================================${RESET}
 EOF
 )
-    echo -e "${CYAN}${menu_content}${RESET}"
-    echo -ne "${BOLD}Enter your choice [1-10]: ${RESET}"
+    echo -e "${BIRU}${menu_content}${RESET}"
+    echo -ne "${TEBAL}Masukkan pilihan [1-10]: ${RESET}"
 
-    # Save menu (with bold effect) to text file
+    # Simpan menu ke file
     echo -e "$menu_content" > menu.txt
 }
 
-# Main loop
+# Loop utama
 while true; do
-    show_menu
-    read -r choice
-    case $choice in
-        1) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/panel.sh" ;;
-        2) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/wings.sh" ;;
-        3) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/update.sh" ;;
-        4) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/uninstall.sh" ;;
-        5) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/blueprint.sh" ;;
-        6) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/cloudflare.sh" ;;
-        7) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/change%20theme.sh" ;;
-        9) system_info ;;
-        10) echo "Exiting..."; exit 0 ;;
-        *) echo -e "${RED}${BOLD}Invalid option!${RESET}"; read -p "Press Enter to continue..." ;;
+    tampilkan_menu
+    read -r pilihan
+    case $pilihan in
+        1) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/panel.sh" ;;
+        2) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/wings.sh" ;;
+        3) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/update.sh" ;;
+        4) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/uninstall.sh" ;;
+        5) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/blueprint.sh" ;;
+        6) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/cloudflare.sh" ;;
+        7) jalankan_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/change%20theme.sh" ;;
+        9) info_sistem ;;
+        10) echo "Keluar..."; exit 0 ;;
+        *) echo -e "${MERAH}${TEBAL}Pilihan tidak valid!${RESET}"; read -p "Tekan Enter untuk lanjut..." ;;
     esac
 done
