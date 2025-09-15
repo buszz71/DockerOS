@@ -89,7 +89,7 @@ show_menu() {
     menu_content=$(cat <<EOF
 ${BOLD}========== MAIN MENU ==========${RESET}
 ${BOLD}1. Panel${RESET}
-${BOLD}2. Wing${RESET}
+${BOLD}2. Wings${RESET}
 ${BOLD}3. Update${RESET}
 ${BOLD}4. Uninstall${RESET}
 ${BOLD}5. Blueprint${RESET}
@@ -112,13 +112,13 @@ while true; do
     show_menu
     read -r choice
     case $choice in
-        1) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/panel.sh" ;;
-        2) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/wing.sh" ;;
-        3) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/up.sh" ;;
-        4) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/uninstalll.sh" ;;
-        5) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/blueprint.sh" ;;
-        6) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/cloudflare.sh" ;;
-        7) run_remote_script "https://raw.githubusercontent.com/nobita586/Nobita-Hosting/main/cd/th.sh" ;;
+        1) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/panel.sh" ;;
+        2) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/wings.sh" ;;
+        3) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/update.sh" ;;
+        4) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/uninstall.sh" ;;
+        5) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/blueprint.sh" ;;
+        6) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/cloudflare.sh" ;;
+        7) run_remote_script "https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/change%20theme.sh" ;;
         9) system_info ;;
         10) echo "Exiting..."; exit 0 ;;
         *) echo -e "${RED}${BOLD}Invalid option!${RESET}"; read -p "Press Enter to continue..." ;;
