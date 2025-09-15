@@ -1,127 +1,87 @@
 #!/bin/bash
 
+set -euo pipefail
+clear
+
+# -------------------------
 # Warna
+# -------------------------
 RED="\e[31m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
 CYAN="\e[36m"
-WHITE="\e[37m"
 RESET="\e[0m"
 BOLD="\e[1m"
 
-# Banner
-banner() {
-    clear
-    echo -e "${CYAN}${BOLD}"
-    echo "====================================="
-    echo "      DOCKER OS LAUNCHER MENU        "
-    echo "         Created by Manz4Ndaa        "
-    echo "====================================="
-    echo -e "${RESET}"
-}
+# -------------------------
+# ASCII Logo (RISMAN)
+# -------------------------
+cat << "EOF"
+██████╗ ██╗███████╗███╗   ███╗ █████╗ ███╗   ██╗
+██╔══██╗██║██╔════╝████╗ ████║██╔══██╗████╗  ██║
+██████╔╝██║█████╗  ██╔████╔██║███████║██╔██╗ ██║
+██╔═══╝ ██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║
+██║     ██║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║
+╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+EOF
+sleep 1
+clear
 
-# Menu Docker OS
-show_menu() {
-    banner
-    echo -e "${BOLD}====== MENU DOCKER OS ======${RESET}"
-    echo -e "${BOLD}1.${RESET} Ubuntu 24"
-    echo -e "${BOLD}2.${RESET} Ubuntu 22"
-    echo -e "${BOLD}3.${RESET} Debian 11"
-    echo -e "${BOLD}4.${RESET} Debian 12"
-    echo -e "${BOLD}5.${RESET} Attach ke container lama"
-    echo -e "${BOLD}6.${RESET} Hapus container"
-    echo -e "${BOLD}7.${RESET} Keluar"
-    echo -ne "${CYAN}Pilih opsi [1-7]: ${RESET}"
-}
+# -------------------------
+# Show Credits (tetap)
+# -------------------------
+msg1="Make By Manz & Ndaa"
+msg2="Docker credit by ManzXYZ"
 
-# Jalankan container baru
-run_container() {
-    IMAGE=$1
-    read -p "Limit RAM (misal 1g / 512m): " RAM_LIMIT
-    read -p "Limit CPU (misal 1 / 0.5 / 2): " CPU_LIMIT
-    read -p "Nama container (default: autobot): " NAME
-    NAME=${NAME:-autobot}
+echo -e "\033[1;32m$msg1\033[0m"
+sleep 0.3
+echo -e "\033[1;34m$msg2\033[0m"
+sleep 2
+clear
 
-    echo -e "${YELLOW}Menjalankan container: $IMAGE${RESET}"
-    docker run -dit \
-        --name "$NAME" \
-        --memory "$RAM_LIMIT" \
-        --cpus "$CPU_LIMIT" \
-        --restart unless-stopped \
-        "$IMAGE"
+# -------------------------
+# Pilih OS
+# -------------------------
+echo -e "${BOLD}${CYAN}Pilih OS yang mau dijalankan:${RESET}"
+echo -e "${YELLOW}1)${RESET} Debian 11"
+echo -e "${YELLOW}2)${RESET} Debian 12"
+echo -e "${YELLOW}3)${RESET} Ubuntu 22"
+echo -e "${YELLOW}4)${RESET} Ubuntu 24"
+read -rp "Masukkan pilihan (1/2/3/4): " OS_CHOICE
 
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}Container $NAME berhasil dijalankan!${RESET}"
-        echo "Masuk ke container sekarang..."
-        sleep 2
-        docker exec -it "$NAME" bash || docker exec -it "$NAME" sh
-    else
-        echo -e "${RED}Gagal menjalankan container!${RESET}"
-    fi
-}
+case "$OS_CHOICE" in
+  1) IMAGE_NAME="manz4you/debian11"; CONTAINER_NAME="debian11" ;;
+  2) IMAGE_NAME="manz4you/debian12"; CONTAINER_NAME="debian12" ;;
+  3) IMAGE_NAME="manz4you/ubuntu22"; CONTAINER_NAME="ubuntu22" ;;
+  4) IMAGE_NAME="manz4you/ubuntu24"; CONTAINER_NAME="ubuntu24" ;;
+  *) echo -e "${RED}Pilihan tidak valid!${RESET}"; exit 1 ;;
+esac
 
-# Attach ke container lama
-attach_container() {
-    echo -e "${YELLOW}Daftar container aktif:${RESET}"
-    docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+# -------------------------
+# Input Resource
+# -------------------------
+echo -e "${BOLD}${CYAN}Masukkan konfigurasi resource:${RESET}"
+read -rp "Limit RAM (misal 1G / 512M): " RAM
+read -rp "Limit CPU (misal 1 / 0.5 / 2): " CPU
+read -rp "Limit Disk (misal 20G): " DISK_SIZE
 
-    echo
-    read -p "Masukkan nama container yang mau di-attach: " NAME
-    if [ -z "$NAME" ]; then
-        echo -e "${RED}Nama container tidak boleh kosong!${RESET}"
-        sleep 2
-        return
-    fi
+RAM=$(echo "$RAM" | tr '[:upper:]' '[:lower:]')
+DISK_SIZE=$(echo "$DISK_SIZE" | tr '[:upper:]' '[:lower:]')
 
-    if docker ps -a --format '{{.Names}}' | grep -qw "$NAME"; then
-        echo -e "${GREEN}Masuk ke container $NAME...${RESET}"
-        sleep 1
-        docker exec -it "$NAME" bash || docker exec -it "$NAME" sh
-    else
-        echo -e "${RED}Container $NAME tidak ditemukan!${RESET}"
-        sleep 2
-    fi
-}
+# -------------------------
+# Jalankan Container
+# -------------------------
+VMDATA_DIR="$PWD/vmdata"
+mkdir -p "$VMDATA_DIR"
 
-# Hapus container
-delete_container() {
-    echo -e "${YELLOW}Daftar semua container:${RESET}"
-    docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+echo -e "${GREEN}Menjalankan container $CONTAINER_NAME dengan RAM=$RAM CPU=$CPU DISK=$DISK_SIZE...${RESET}"
+sleep 2
 
-    echo
-    read -p "Masukkan nama container yang mau dihapus: " NAME
-    if [ -z "$NAME" ]; then
-        echo -e "${RED}Nama container tidak boleh kosong!${RESET}"
-        sleep 2
-        return
-    fi
-
-    if docker ps -a --format '{{.Names}}' | grep -qw "$NAME"; then
-        echo -e "${RED}Menghentikan & menghapus container $NAME...${RESET}"
-        docker stop "$NAME" && docker rm "$NAME"
-        if [ $? -eq 0 ]; then
-            echo -e "${GREEN}Container $NAME berhasil dihapus.${RESET}"
-        else
-            echo -e "${RED}Gagal menghapus container $NAME.${RESET}"
-        fi
-    else
-        echo -e "${RED}Container $NAME tidak ditemukan!${RESET}"
-        sleep 2
-    fi
-}
-
-# Main loop
-while true; do
-    show_menu
-    read -r choice
-    case $choice in
-        1) run_container "manz4you/ubuntu24" ;;
-        2) run_container "manz4you/ubuntu22" ;;
-        3) run_container "manz4you/debian11" ;;
-        4) run_container "manz4you/debian12" ;;
-        5) attach_container ;;
-        6) delete_container ;;
-        7) echo "Keluar..."; exit 0 ;;
-        *) echo -e "${RED}Pilihan tidak valid!${RESET}"; sleep 1 ;;
-    esac
-done
+docker run -it --rm \
+  --name "$CONTAINER_NAME" \
+  --device /dev/kvm \
+  -v "$VMDATA_DIR":/vmdata \
+  -e RAM="$RAM" \
+  -e CPU="$CPU" \
+  -e DISK_SIZE="$DISK_SIZE" \
+  "$IMAGE_NAME"
