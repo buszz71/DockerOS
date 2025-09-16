@@ -50,10 +50,10 @@ echo -e "${YELLOW}4)${RESET} Ubuntu 24"
 read -rp "Masukkan pilihan (1/2/3/4): " OS_CHOICE
 
 case "$OS_CHOICE" in
-  1) IMAGE_NAME="manz4you/debian11"; CONTAINER_NAME="debian11" ;;
-  2) IMAGE_NAME="manz4you/debian12"; CONTAINER_NAME="debian12" ;;
-  3) IMAGE_NAME="manz4you/ubuntu22"; CONTAINER_NAME="ubuntu22" ;;
-  4) IMAGE_NAME="manz4you/ubuntu24"; CONTAINER_NAME="ubuntu24" ;;
+  1) IMAGE_NAME="manz4vps/debian11"; CONTAINER_NAME="debian11" ;;
+  2) IMAGE_NAME="manz4vps/debian12"; CONTAINER_NAME="debian12" ;;
+  3) IMAGE_NAME="manz4vps/ubuntu22"; CONTAINER_NAME="ubuntu22" ;;
+  4) IMAGE_NAME="manz4vps/ubuntu24"; CONTAINER_NAME="ubuntu24" ;;
   *) echo -e "${RED}Pilihan tidak valid!${RESET}"; exit 1 ;;
 esac
 
@@ -61,8 +61,8 @@ esac
 # Input Resource
 # -------------------------
 echo -e "${BOLD}${CYAN}Masukkan konfigurasi resource:${RESET}"
-read -rp "Limit RAM (misal 1G / 512M): " RAM
-read -rp "Limit CPU (misal 1 / 0.5 / 2): " CPU
+read -rp "Limit RAM (misal 5G): " RAM
+read -rp "Limit CPU (misal 2): " CPU
 read -rp "Limit Disk (misal 20G): " DISK_SIZE
 
 RAM=$(echo "$RAM" | tr '[:upper:]' '[:lower:]')
