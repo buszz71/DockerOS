@@ -36,6 +36,8 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian12
     ```
+
+    
 1. Build image yang dibutuhkan:
 
     ```sh
@@ -53,6 +55,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     docker build -t debian12:latest .
     ```
+
 
 3. Push image ke Docker Hub:
    
@@ -98,16 +101,21 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     docker push manz4vps/debian12:latest
     ```
 
+
 5. Install OS di VPS:
 
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/PilihOS-vps.sh)
     ```
+
+    
 6. Install Panel:
 
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/all-autoinstaller.sh)
     ```
+
+    
 7. Tunnel manzsrv:
    ```sh
    sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiNDlkMTgwNWEtODc2MS00MWRiLWI1ZTYtYTEyZGJiMWQ4N2U0IiwicyI6Ik0ySXhNbUUyWm1VdE1UWXhNUzAwTWprMExXSmtOVGN0TVdNeU9HTm1PREJrT0RReCJ9
@@ -115,6 +123,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
    ```Dinz
    sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiOThlNjIyNTEtNzUxNS00MjIyLWEyZTQtMzAxNWFhMzg4NmI2IiwicyI6IllqQXpOREUzWVRBdE5HSmlNeTAwTkdGaUxXSTVPVGt0TVdKaU56SXlPVEl6WW1NNSJ9
    ```
+
 
 6. Install Playit Tunnel:
 
