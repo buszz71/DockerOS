@@ -55,14 +55,18 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     docker login
     ```
-    
-     **Tag&push:**
+
+    **Tag&push:**
+
+    **ubuntu22**
     ```sh
     docker tag ubuntu22:latest manz4vps/ubuntu22:latest
     ```
     ```sh
     docker push manz4vps/ubuntu22:latest
     ```
+    
+    **ubuntu24**
 
     ```sh
     docker tag ubuntu24:latest manz4vps/ubuntu24:latest
@@ -70,14 +74,15 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     docker push manz4vps/ubuntu24:latest
     ```
-
+    
+    **debian11**
     ```sh
     docker tag debian11:latest manz4vps/debian11:latest
     ```
     ```sh
     docker push manz4vps/debian11:latest
     ```
-
+    **debian12**
     ```sh
     docker tag debian12:latest manz4vps/debian12:latest
     ```
