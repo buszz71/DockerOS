@@ -23,7 +23,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
    wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu24
     ```
     ```sh
-   wget -O Dockerfile  https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:debian11
+   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:debian11
     ```
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:debian12
