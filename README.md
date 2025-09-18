@@ -119,7 +119,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
     **Auto Installer:**
     ```sh
-    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit.sh)
+    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit)
     ```
 
 ## Supported Architectures
