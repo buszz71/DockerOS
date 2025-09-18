@@ -125,8 +125,10 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 ## Supported Architectures
 
-- x86_64 (amd64)
-- aarch64 (arm64)
+- OS (ubuntu24)
+- OS (ubuntu22)
+- OS (debian12)
+- OS (debian11)
 
 ## License
 
