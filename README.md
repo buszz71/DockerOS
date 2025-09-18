@@ -123,18 +123,18 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit)
     ```
 
-## Supported Architectures
+# Supported Architectures
 
 - OS (ubuntu24)
 - OS (ubuntu22)
 - OS (debian12)
 - OS (debian11)
 
-## License
+# License
 
 This VPS & Docker OS Toolkit is released under the [MIT License](LICENSE).
 
-## Credits
+# Credits
 
 Developed and maintained by **manz4vps**  
 Special thanks to the open-source community and contributors 🚀
