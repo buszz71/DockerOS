@@ -36,7 +36,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian12
     ```
-    ```
+    
     
 1. Build image yang dibutuhkan:
 
