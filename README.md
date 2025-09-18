@@ -11,7 +11,7 @@ Semua sudah dirapikan biar gampang copy-paste 👇
 ```bash
 # Ubuntu 22
 docker build -t ubuntu22:latest .
-
+```bash
 # Ubuntu 24
 docker build -t ubuntu24:latest .
 
