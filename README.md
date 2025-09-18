@@ -47,14 +47,14 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```
 
 3. Push image ke Docker Hub:
-
+     **Login:**
     ```sh
     docker logout
     ```
     ```sh
     docker login
     ```
-
+     **Tag&push:**
     ```sh
     docker tag ubuntu22:latest manz4vps/ubuntu22:latest
     ```
