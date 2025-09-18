@@ -16,15 +16,23 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 ## 🛠️ Installation
 
 1. VPS OS
+
+   **ubuntu22**
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu22
     ```
+    
+   **ubuntu24**
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu24
     ```
+    
+   **debian11**
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian11
     ```
+    
+   **debian12**
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian12
     ```
