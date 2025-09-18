@@ -56,7 +56,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     docker login
     ```
 
-   ## Tag&push
+   ## Tag&Push
 
     **ubuntu22**
     ```sh
