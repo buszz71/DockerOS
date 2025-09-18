@@ -136,7 +136,7 @@ This VPS & Docker OS Toolkit is released under the [MIT License](LICENSE).
 
 ## Credits
 
-Developed and maintained by **buszz71**  
+Developed and maintained by **manz4vps**  
 Special thanks to the open-source community and contributors 🚀
 
 ---
