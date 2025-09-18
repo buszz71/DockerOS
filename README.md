@@ -13,7 +13,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 - CPU architecture: x86_64 (amd64) atau aarch64 (arm64)
 - Akses akun Docker Hub (untuk push image)
 
-## Installation
+## 🛠️ Installation
 
 1. VPS OS
     ```sh
