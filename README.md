@@ -26,8 +26,17 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
     ```sh
     docker build -t ubuntu22:latest .
+    ```
+
+    ```sh
     docker build -t ubuntu24:latest .
+    ```
+
+    ```sh
     docker build -t debian11:latest .
+    ```
+
+    ```sh
     docker build -t debian12:latest .
     ```
 
@@ -36,10 +45,26 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     docker logout
     docker login
-    docker tag ubuntu22:latest user/ubuntu22:latest && docker push user/ubuntu22:latest
-    docker tag ubuntu24:latest user/ubuntu24:latest && docker push user/ubuntu24:latest
-    docker tag debian11:latest user/debian11:latest && docker push user/debian11:latest
-    docker tag debian12:latest user/debian12:latest && docker push user/debian12:latest
+    ```
+
+    ```sh
+    docker tag ubuntu22:latest user/ubuntu22:latest
+    docker push user/ubuntu22:latest
+    ```
+
+    ```sh
+    docker tag ubuntu24:latest user/ubuntu24:latest
+    docker push user/ubuntu24:latest
+    ```
+
+    ```sh
+    docker tag debian11:latest user/debian11:latest
+    docker push user/debian11:latest
+    ```
+
+    ```sh
+    docker tag debian12:latest user/debian12:latest
+    docker push user/debian12:latest
     ```
 
 4. Install OS di VPS:
