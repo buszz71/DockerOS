@@ -15,14 +15,8 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 ## Installation
 
-#1. Clone repository ini:
 
-    ```sh
-    git clone https://github.com/buszz71/DockerOS.git
-    cd DockerOS
-    ```
-
-#2. Build image yang dibutuhkan:
+2. Build image yang dibutuhkan:
 
     ```sh
     docker build -t ubuntu22:latest .
@@ -44,27 +38,37 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
     ```sh
     docker logout
+    ```
+    ```sh
     docker login
     ```
 
     ```sh
-    docker tag ubuntu22:latest user/ubuntu22:latest
-    docker push user/ubuntu22:latest
+    docker tag ubuntu22:latest manz4vps/ubuntu22:latest
+    ```
+    ```sh
+    docker push manz4vps/ubuntu22:latest
     ```
 
     ```sh
-    docker tag ubuntu24:latest user/ubuntu24:latest
-    docker push user/ubuntu24:latest
+    docker tag ubuntu24:latest manz4vps/ubuntu24:latest
+    ```
+    ```sh
+    docker push manz4vps/ubuntu24:latest
     ```
 
     ```sh
-    docker tag debian11:latest user/debian11:latest
-    docker push user/debian11:latest
+    docker tag debian11:latest manz4vps/debian11:latest
+    ```
+    ```sh
+    docker push manz4vps/debian11:latest
     ```
 
     ```sh
-    docker tag debian12:latest user/debian12:latest
-    docker push user/debian12:latest
+    docker tag debian12:latest manz4vps/debian12:latest
+    ```
+    ```sh
+    docker push manz4vps/debian12:latest
     ```
 
 4. Install OS di VPS:
