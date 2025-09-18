@@ -16,18 +16,22 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 ## Installation
 
 1. VPS OS
-    # Ubuntu 22
+   ```sh
+    ## Ubuntu 22
     wget -O Dockerfile          https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile,ubuntu22
-
-  # Ubuntu 24
+```
+```sh
+  ## Ubuntu 24
   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile,ubuntu24
-
-  # Debian 11
+```
+```sh
+  ## Debian 11
   wget -O Dockerfile  https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile,debian11
-
-  # Debian 12
+```
+```sh
+  ## Debian 12
   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile,debian12
-
+```
 1. Build image yang dibutuhkan:
 
     ```sh
