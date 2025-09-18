@@ -15,14 +15,14 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 ## Installation
 
-1. Clone repository ini:
+#1. Clone repository ini:
 
     ```sh
     git clone https://github.com/buszz71/DockerOS.git
     cd DockerOS
     ```
 
-2. Build image yang dibutuhkan:
+#2. Build image yang dibutuhkan:
 
     ```sh
     docker build -t ubuntu22:latest .
