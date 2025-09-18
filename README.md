@@ -17,16 +17,16 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 1. VPS OS
     ```sh
-   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu22
+   wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu22
     ```
     ```sh
-   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu24
+   wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu24
     ```
     ```sh
-   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:debian11
+   wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian11
     ```
     ```sh
-   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:debian12
+   wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian12
     ```
 1. Build image yang dibutuhkan:
 
@@ -93,12 +93,12 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 5. Install OS di VPS:
 
     ```sh
-    bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/PilihOS-vps.sh)
+    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/PilihOS-vps.sh)
     ```
 6. Install Panel:
 
     ```sh
-    bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/all-autoinstaller.sh)
+    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/all-autoinstaller.sh)
     ```
 7. Tunnel manzsrv:
    ```sh
@@ -119,7 +119,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
     **Auto Installer:**
     ```sh
-    bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/playit.sh)
+    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit.sh)
     ```
 
 ## Supported Architectures
