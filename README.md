@@ -47,6 +47,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```
 
 3. Push image ke Docker Hub:
+   
      **Login:**
     ```sh
     docker logout
@@ -54,6 +55,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     docker login
     ```
+    
      **Tag&push:**
     ```sh
     docker tag ubuntu22:latest manz4vps/ubuntu22:latest
@@ -83,17 +85,17 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     docker push manz4vps/debian12:latest
     ```
 
-4. Install OS di VPS:
+5. Install OS di VPS:
 
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/PilihOS-vps.sh)
     ```
-5. Install Panel:
+6. Install Panel:
 
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/all-autoinstaller.sh)
     ```
-6. Tunnel manzsrv:
+7. Tunnel manzsrv:
    ```sh
    sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiNDlkMTgwNWEtODc2MS00MWRiLWI1ZTYtYTEyZGJiMWQ4N2U0IiwicyI6Ik0ySXhNbUUyWm1VdE1UWXhNUzAwTWprMExXSmtOVGN0TVdNeU9HTm1PREJrT0RReCJ9
    ```
