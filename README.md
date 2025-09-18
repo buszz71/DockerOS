@@ -17,7 +17,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 1. VPS OS
 ```sh
- wget -O Dockerfile          https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu22
+ wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu22
 ```
 ```sh
   wget -O Dockerfile https://raw.githubusercontent.com/buszz71/DockerOS/main/Dockerfile:ubuntu24
