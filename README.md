@@ -15,14 +15,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 ## Installation
 
-1. Tunnel manzsrv:
-   ```sh
-   sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiNDlkMTgwNWEtODc2MS00MWRiLWI1ZTYtYTEyZGJiMWQ4N2U0IiwicyI6Ik0ySXhNbUUyWm1VdE1UWXhNUzAwTWprMExXSmtOVGN0TVdNeU9HTm1PREJrT0RReCJ9
-   ```
-   ```Dinz
-   sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiOThlNjIyNTEtNzUxNS00MjIyLWEyZTQtMzAxNWFhMzg4NmI2IiwicyI6IllqQXpOREUzWVRBdE5HSmlNeTAwTkdGaUxXSTVPVGt0TVdKaU56SXlPVEl6WW1NNSJ9
-   ```
-2. Build image yang dibutuhkan:
+1. Build image yang dibutuhkan:
 
     ```sh
     docker build -t ubuntu22:latest .
@@ -82,7 +75,13 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/buszz71/DockerOS/refs/heads/main/PilihOS-vps.sh)
     ```
-
+5. Tunnel manzsrv:
+   ```sh
+   sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiNDlkMTgwNWEtODc2MS00MWRiLWI1ZTYtYTEyZGJiMWQ4N2U0IiwicyI6Ik0ySXhNbUUyWm1VdE1UWXhNUzAwTWprMExXSmtOVGN0TVdNeU9HTm1PREJrT0RReCJ9
+   ```
+   ```Dinz
+   sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiOThlNjIyNTEtNzUxNS00MjIyLWEyZTQtMzAxNWFhMzg4NmI2IiwicyI6IllqQXpOREUzWVRBdE5HSmlNeTAwTkdGaUxXSTVPVGt0TVdKaU56SXlPVEl6WW1NNSJ9
+   ```
 5. Install Panel:
 
     ```sh
