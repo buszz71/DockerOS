@@ -1,9 +1,14 @@
 #!/bin/bash
+set -e
 
-# ========== Pilihan Versi Windows ==========
+echo "======================================="
+echo "      Windows Installer by manz4vps     "
+echo "======================================="
+
+# Menu pilihan versi
 echo "Pilih versi Windows:"
 echo " Value  | Version                   | Size"
-echo "--------------------------------------"
+echo "------------------------------------------"
 echo " 11     | Windows 11 Pro             | 5.4 GB"
 echo " 11l    | Windows 11 LTSC            | 4.2 GB"
 echo " 11e    | Windows 11 Enterprise      | 5.8 GB"
@@ -21,49 +26,32 @@ echo " 2016   | Windows Server 2016        | 6.5 GB"
 echo " 2012   | Windows Server 2012        | 4.3 GB"
 echo " 2008   | Windows Server 2008        | 3.0 GB"
 echo " 2003   | Windows Server 2003        | 0.6 GB"
-echo
+echo "======================================="
 
-# Input dengan default value
-read -p "Masukkan value versi (default: 11l): " VERSION
-VERSION=${VERSION:-11l}
+read -p "Masukkan value versi Windows: " VERSION
+USERNAME="ManzXD"
+PASSWORD="ManzXD"
+RAM="4G"
+CPU="2"
+DISK="20G"
+DISK2="20G"
 
-read -p "Masukkan Username RDP (default: ManzXD): " USERNAME
-USERNAME=${USERNAME:-ManzXD}
-
-read -p "Masukkan Password RDP (default: ManzXD): " PASSWORD
-PASSWORD=${PASSWORD:-ManzXD}
-
-read -p "Masukkan RAM (default: 4G): " RAM
-RAM=${RAM:-4G}
-
-read -p "Masukkan jumlah CPU (default: 2): " CPU
-CPU=${CPU:-2}
-
-read -p "Masukkan Disk utama (default: 20G): " DISK1
-DISK1=${DISK1:-20G}
-
-read -p "Masukkan Disk kedua (default: 20G): " DISK2
-DISK2=${DISK2:-20G}
-
-# Nama file yaml berdasarkan versi
-YAML_FILE="windows-${VERSION}.yml"
-
-# ========== Generate docker-compose.yml ==========
-cat > $YAML_FILE <<EOL
+# Buat file manz4windows.yml
+cat > manz4windows.yml <<EOF
 version: "3.8"
 services:
   windows:
     image: manz4vps/windows
     container_name: windows
     environment:
-      VERSION: "$VERSION"
-      USERNAME: "$USERNAME"
-      PASSWORD: "$PASSWORD"
-      RAM_SIZE: "$RAM"
-      CPU_CORES: "$CPU"
-      DISK_SIZE: "$DISK1"
-      DISK2_SIZE: "$DISK2"
-    devices:         
+      VERSION: "${VERSION}"
+      USERNAME: "${USERNAME}"
+      PASSWORD: "${PASSWORD}"
+      RAM_SIZE: "${RAM}"
+      CPU_CORES: "${CPU}"
+      DISK_SIZE: "${DISK}"
+      DISK2_SIZE: "${DISK2}"
+    devices:
       - /dev/kvm
       - /dev/net/tun
     cap_add:
@@ -73,11 +61,19 @@ services:
       - 3389:3389/tcp
       - 3389:3389/udp
     stop_grace_period: 2m
-EOL
+EOF
 
-# ========== Jalankan Container ==========
-echo "========================================="
-echo "File $YAML_FILE berhasil dibuat."
-echo "Sekarang menjalankan docker-compose..."
-echo "========================================="
-sudo docker-compose -f $YAML_FILE up
+echo "[INFO] File manz4windows.yml berhasil dibuat."
+echo "[INFO] Menjalankan Windows versi: $VERSION"
+
+# Jalankan docker-compose pakai file custom
+sudo docker-compose -f manz4windows.yml up -d
+
+echo "======================================="
+echo " Windows $VERSION berhasil dijalankan!"
+echo "---------------------------------------"
+echo " WebUI : http://localhost:8006"
+echo " RDP   : 🖥️RDP siap di jalankan..."
+echo " User  : $USERNAME"
+echo " Pass  : $PASSWORD"
+echo "======================================="
