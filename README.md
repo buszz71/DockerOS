@@ -17,7 +17,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 1. **VPS OS**
 
-   **ubuntu22**
+   *ubuntu22*
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu22
     ```
