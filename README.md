@@ -139,6 +139,10 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit)
     ```
+7. Windows-install
+   ```sh
+  bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/install-windows.sh)
+   ```
 
 # Supported Architectures
 
