@@ -126,7 +126,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
    ```
 
 
-6. Install Playit Tunnel:
+6. **Install Playit Tunnel:**
 
 -   *Manual:*
     ```sh
@@ -141,7 +141,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit)
     ```
     
-7. Windows-install
+7. **Windows-install**
    ```sh
    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/install-windows.sh)
    ```
