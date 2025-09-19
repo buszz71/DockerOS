@@ -77,7 +77,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     docker push manz4vps/ubuntu22:latest
     ```
     
-    *ubuntu24*
+-   *ubuntu24*
 
     ```sh
     docker tag ubuntu24:latest manz4vps/ubuntu24:latest
@@ -86,14 +86,14 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     docker push manz4vps/ubuntu24:latest
     ```
     
-   - *debian11*
+-  *debian11*
     ```sh
     docker tag debian11:latest manz4vps/debian11:latest
     ```
     ```sh
     docker push manz4vps/debian11:latest
     ```
-    *debian12*
+-   *debian12*
     ```sh
     docker tag debian12:latest manz4vps/debian12:latest
     ```
@@ -120,6 +120,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
    ```sh
    sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiNDlkMTgwNWEtODc2MS00MWRiLWI1ZTYtYTEyZGJiMWQ4N2U0IiwicyI6Ik0ySXhNbUUyWm1VdE1UWXhNUzAwTWprMExXSmtOVGN0TVdNeU9HTm1PREJrT0RReCJ9
    ```
+   
    ```Dinz
    sudo cloudflared service install eyJhIjoiNjkxYTIzNWIxYTFiMWYxM2E0NDdiOTUyZTUyYmVhYjUiLCJ0IjoiOThlNjIyNTEtNzUxNS00MjIyLWEyZTQtMzAxNWFhMzg4NmI2IiwicyI6IllqQXpOREUzWVRBdE5HSmlNeTAwTkdGaUxXSTVPVGt0TVdKaU56SXlPVEl6WW1NNSJ9
    ```
@@ -127,7 +128,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 6. Install Playit Tunnel:
 
-    **Manual:**
+-   *Manual:*
     ```sh
     wget https://github.com/playit-cloud/playit-agent/releases/download/v0.15.26/playit-linux-amd64
     chmod +x playit-linux-amd64
@@ -135,10 +136,11 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
     ./playit-linux-amd64
     ```
 
-    **Auto Installer:**
+-  *Auto Installer:*
     ```sh
     bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/playit)
     ```
+    
 7. Windows-install
    ```sh
    bash <(curl -s https://raw.githubusercontent.com/manz4vps/DockerOS/refs/heads/main/install-windows.sh)
