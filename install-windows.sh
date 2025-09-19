@@ -45,8 +45,11 @@ DISK1=${DISK1:-20G}
 read -p "Masukkan Disk kedua (default: 20G): " DISK2
 DISK2=${DISK2:-20G}
 
+# Nama file yaml berdasarkan versi
+YAML_FILE="windows-${VERSION}.yml"
+
 # ========== Generate docker-compose.yml ==========
-cat > docker-compose.yml <<EOL
+cat > $YAML_FILE <<EOL
 version: "3.8"
 services:
   windows:
@@ -73,15 +76,8 @@ services:
 EOL
 
 # ========== Jalankan Container ==========
-docker compose up -d
-
-# ========== Output Info ==========
 echo "========================================="
-echo "Windows $VERSION berhasil dijalankan!"
-echo
-echo "Web UI   : http://localhost:8006"
-echo "RDP      : <IP_OR_DOMAIN>:3389"
-echo
-echo "Username : $USERNAME"
-echo "Password : $PASSWORD"
+echo "File $YAML_FILE berhasil dibuat."
+echo "Sekarang menjalankan docker-compose..."
 echo "========================================="
+sudo docker-compose -f $YAML_FILE up
