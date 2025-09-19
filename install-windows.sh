@@ -81,3 +81,4 @@ echo "File $YAML_FILE berhasil dibuat."
 echo "Sekarang menjalankan docker-compose..."
 echo "========================================="
 sudo docker-compose -f $YAML_FILE up
+sudo docker attach windows
