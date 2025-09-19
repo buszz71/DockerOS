@@ -17,22 +17,22 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 1. **VPS OS**
 
-   *ubuntu22*
+- *ubuntu22*
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu22
     ```
 
-   *ubuntu24*
+- *ubuntu24*
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:ubuntu24
     ```
     
-   *debian11*
+-  *debian11*
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian11
     ```
     
-   *debian12*
+- *debian12*
     ```sh
    wget -O Dockerfile https://raw.githubusercontent.com/manz4vps/DockerOS/main/Dockerfile:debian12
     ```
@@ -59,7 +59,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
 3. **Push image ke Docker Hub:**
    
-     *Login:*
+-  *Login:*
     ```sh
     docker logout
     ```
@@ -69,7 +69,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 
    ## Tag&Push
 
-    *ubuntu22*
+-   *ubuntu22*
     ```sh
     docker tag ubuntu22:latest manz4vps/ubuntu22:latest
     ```
