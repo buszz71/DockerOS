@@ -146,6 +146,7 @@ Semua sudah dirapikan supaya gampang copy-paste dan cepat dipakai di VPS.
 - OS (ubuntu22)
 - OS (debian12)
 - OS (debian11)
+- OS (windows)
 
 # License
 
